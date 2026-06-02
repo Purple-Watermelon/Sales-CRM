@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>갱신 · Sales CRM</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand"><span class="dot"></span> Sales CRM</div>
+      <nav class="nav">
+        <a class="nav-link" href="index.html"><span class="ico">▣</span> 대시보드</a>
+        <a class="nav-link" href="customers.html"><span class="ico">◫</span> 고객 상세</a>
+        <div class="nav-section">영업</div>
+        <a class="nav-link" href="quotes.html"><span class="ico">▤</span> 견적</a>
+        <a class="nav-link" href="orders.html"><span class="ico">▥</span> 발주</a>
+        <a class="nav-link" href="renewals.html"><span class="ico">⟳</span> 갱신</a>
+        <a class="nav-link" href="software.html"><span class="ico">◰</span> SW 현황</a>
+        <div class="nav-section">관리</div>
+        <a class="nav-link" href="settings.html"><span class="ico">⚙</span> 설정</a>
+      </nav>
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <h1>갱신</h1>
+        <span class="who">계약/구독 갱신 관리</span>
+      </header>
+      <main class="content">
+        <div class="card">
+          <div class="card-title">⟳ 갱신 관리</div>
+          <div class="card-sub">자산 만료일 기준 갱신 대상 관리</div>
+          <div class="todo"><b>6단계</b>에서 구현 — 자산현황(2단계)과 연결해 만료 임박 건을 모아 봅니다.</div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

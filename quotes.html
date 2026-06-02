@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>견적 · Sales CRM</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand"><span class="dot"></span> Sales CRM</div>
+      <nav class="nav">
+        <a class="nav-link" href="index.html"><span class="ico">▣</span> 대시보드</a>
+        <a class="nav-link" href="customers.html"><span class="ico">◫</span> 고객 상세</a>
+        <div class="nav-section">영업</div>
+        <a class="nav-link" href="quotes.html"><span class="ico">▤</span> 견적</a>
+        <a class="nav-link" href="orders.html"><span class="ico">▥</span> 발주</a>
+        <a class="nav-link" href="renewals.html"><span class="ico">⟳</span> 갱신</a>
+        <a class="nav-link" href="software.html"><span class="ico">◰</span> SW 현황</a>
+        <div class="nav-section">관리</div>
+        <a class="nav-link" href="settings.html"><span class="ico">⚙</span> 설정</a>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <h1>견적 작성</h1>
+        <span class="who">PDF 추출까지 작동 · 실제 메일 발송은 추후</span>
+      </header>
+      <main class="content">
+        <div class="grid cols-2">
+          <div class="card">
+            <div class="card-title">기본 정보</div>
+            <div class="card-sub">견적일자·담당자·vendor·제품명·신규/갱신·기간·규격</div>
+            <div class="todo"><b>3단계</b>에서 구현</div>
+          </div>
+          <div class="card">
+            <div class="card-title">금액 관리</div>
+            <div class="card-sub">수량·공급단가·매입가·인센 → 마진/이익/할인율·총공급단가 자동계산</div>
+            <div class="todo"><b>3단계</b>에서 구현</div>
+          </div>
+          <div class="card">
+            <div class="card-title">발주 관리</div>
+            <div class="card-sub">발주예정·발주확인·세금계산서·입금일</div>
+            <div class="todo"><b>3단계</b>에서 구현</div>
+          </div>
+          <div class="card">
+            <div class="card-title">계산기</div>
+            <div class="card-sub">희망 마진 계산 · Co-Term(월할/일할) 계산</div>
+            <div class="todo"><b>3단계</b>에서 구현</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">▤ 견적서 PDF</div>
+          <div class="card-sub">설정의 견적서 양식으로 PDF 추출</div>
+          <div class="todo"><b>3단계</b>에서 구현 — jsPDF 로 실제 PDF 생성</div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

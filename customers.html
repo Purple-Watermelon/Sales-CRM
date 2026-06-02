@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>고객 상세 · Sales CRM</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand"><span class="dot"></span> Sales CRM</div>
+      <nav class="nav">
+        <a class="nav-link" href="index.html"><span class="ico">▣</span> 대시보드</a>
+        <a class="nav-link" href="customers.html"><span class="ico">◫</span> 고객 상세</a>
+        <div class="nav-section">영업</div>
+        <a class="nav-link" href="quotes.html"><span class="ico">▤</span> 견적</a>
+        <a class="nav-link" href="orders.html"><span class="ico">▥</span> 발주</a>
+        <a class="nav-link" href="renewals.html"><span class="ico">⟳</span> 갱신</a>
+        <a class="nav-link" href="software.html"><span class="ico">◰</span> SW 현황</a>
+        <div class="nav-section">관리</div>
+        <a class="nav-link" href="settings.html"><span class="ico">⚙</span> 설정</a>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <h1>고객 상세</h1>
+        <span class="who">정렬·필터 후 업체를 누르면 상세가 열립니다</span>
+      </header>
+
+      <main class="content">
+
+        <!-- 필터 바 (1단계에서 동작 연결) -->
+        <div class="card">
+          <div class="card-title">필터 · 정렬</div>
+          <div class="card-sub">영업담당 / 지역 / 진행상황(월별) / 최근연락(최신·오래된순) · 중복 적용 가능</div>
+          <div class="todo"><b>1단계</b>에서 구현 — 드롭다운 다중 필터 + 정렬.</div>
+        </div>
+
+        <div class="grid cols-2" style="margin-top:16px;">
+          <!-- 왼쪽: 고객 목록 (지금은 db.js 연결만 시험) -->
+          <div class="card">
+            <div class="card-title">◫ 고객 목록</div>
+            <div class="card-sub">데이터 계층(db.js) 연결 확인용 — 키를 넣으면 목록이 뜹니다</div>
+            <div id="customer-list" class="todo">불러오는 중…</div>
+          </div>
+
+          <!-- 오른쪽: 선택한 고객 상세 (스펙대로 영역만 배치) -->
+          <div class="card">
+            <div class="card-title">선택한 고객 상세</div>
+            <div class="card-sub">업체를 누르면 같은 화면에서 아래 정보가 열립니다</div>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div class="todo">기본정보 — 사업자번호(중복기준)·업체명·구분·주소·담당영업·최초/최종컨택</div>
+              <div class="todo">연락처 — 이름·직급·부서·전화·이메일 (담당자/그 외)</div>
+              <div class="todo">자산 현황 — 벤더·제품·수량·만료일·잔여일수(색상) <span class="badge">2단계</span></div>
+              <div class="todo">컨택 이력 — 일자·방법·내용·Next Action·완료여부 <span class="badge">4단계</span></div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- 이 페이지 전용 동작: 고객 목록 그려보기 -->
+  <script>
+    async function 목록그리기() {
+      const box = document.getElementById("customer-list");
+      const 목록 = await 고객목록가져오기();   // db.js 의 함수 호출
+      if (목록.length === 0) {
+        box.innerHTML = "아직 데이터가 없습니다. (config.js 에 키를 넣으면 연결돼요)";
+        return;
+      }
+      box.classList.remove("todo");
+      box.innerHTML = 목록.map(function (c) {
+        return "<div style='padding:8px 4px;border-bottom:1px solid var(--line)'>"
+             + (c.company_name || "(이름없음)")
+             + " <span class='who'>" + (c.biz_number || "") + "</span></div>";
+      }).join("");
+    }
+    목록그리기();
+  </script>
+</body>
+</html>

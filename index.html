@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>대시보드 · Sales CRM</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="layout">
+
+    <!-- ===== 사이드바 (모든 페이지 공통) ===== -->
+    <aside class="sidebar">
+      <div class="brand"><span class="dot"></span> Sales CRM</div>
+      <nav class="nav">
+        <a class="nav-link" href="index.html"><span class="ico">▣</span> 대시보드</a>
+        <a class="nav-link" href="customers.html"><span class="ico">◫</span> 고객 상세</a>
+        <div class="nav-section">영업</div>
+        <a class="nav-link" href="quotes.html"><span class="ico">▤</span> 견적</a>
+        <a class="nav-link" href="orders.html"><span class="ico">▥</span> 발주</a>
+        <a class="nav-link" href="renewals.html"><span class="ico">⟳</span> 갱신</a>
+        <a class="nav-link" href="software.html"><span class="ico">◰</span> SW 현황</a>
+        <div class="nav-section">관리</div>
+        <a class="nav-link" href="settings.html"><span class="ico">⚙</span> 설정</a>
+      </nav>
+    </aside>
+
+    <!-- ===== 본문 ===== -->
+    <div class="main">
+      <header class="topbar">
+        <h1>대시보드</h1>
+        <span class="who">혼자 사용 중 · 로그인은 추후</span>
+      </header>
+
+      <main class="content">
+
+        <!-- 요약 숫자 카드 (지금은 자리만) -->
+        <div class="grid cols-4">
+          <div class="card stat"><div class="num">—</div><div class="label">전체 고객사</div></div>
+          <div class="card stat"><div class="num">—</div><div class="label">갱신 임박(30일)</div></div>
+          <div class="card stat"><div class="num">—</div><div class="label">진행 중 견적</div></div>
+          <div class="card stat"><div class="num">—</div><div class="label">이번 달 완료</div></div>
+        </div>
+
+        <div class="grid cols-2" style="margin-top:16px;">
+          <div class="card">
+            <div class="card-title">⟳ 갱신 임박 고객</div>
+            <div class="card-sub">영업담당자별 / 전체 · 시각적 그래프 예정</div>
+            <div class="todo"><b>5단계</b>에서 구현 — 자산 만료일 기준으로 임박 고객을 그래프로 보여줍니다.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">▤ Deal Funnel</div>
+            <div class="card-sub">월별 · 스테이지별 계약 파이프라인</div>
+            <div class="todo"><b>5단계</b>에서 구현 — 컨택→견적→발주→…→완료 단계별 현황.</div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- 스크립트: 라이브러리 → 설정 → 데이터계층 → 공통동작 순서 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
